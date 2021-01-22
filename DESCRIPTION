@@ -1,0 +1,17 @@
+Package: identiconr
+Type: Package
+Title: Generate random pattern identicons
+Version: 0.1
+Date: 2018-09-05
+Author: Scott Sherrill-Mix
+Maintainer: Scott Sherrill-Mix <sherrillmix@upenn.edu>
+Description: A package to take a seed and generate a randomly generated pattern identicon.
+License: GPL-2
+LazyData: TRUE
+Suggests:
+    testthat
+Depends:
+    R (>= 3.1.0)
+Imports:
+    graphics, stats, png, grDevices
+RoxygenNote: 6.0.1

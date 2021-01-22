@@ -1,0 +1,61 @@
+points<-data.frame('id'=1:25,'x'=rep(seq(-.5,.5,.25),5),'y'=rep(seq(-.5,.5,.25),each=5))
+pieces<-list(
+  'halfrect'=list(c(21,25,15,11)),
+  'square'=list(c(21,25,5,1)),
+  'halftri'=list(c(21,25,1)),
+  'flagtri'=list(c(11,25,5)),
+  'diamond'=list(c(11,23,15,3)),
+  'diamondpointer'=list(c(21,15,5,3)),
+  '3tri'=list(c(25,15,18),c(15,5,8),c(11,18,8)),
+  'flatpointer'=list(c(21,15,3)),
+  'centersmallsquare'=list(c(17,19,9,7)),
+  '2tri'=list(c(1,11,13),c(13,23,25)),
+  'cornersmallsquare'=list(c(21,23,13,11)),
+  'centerquartertri'=list(c(23,15,3)),
+  'edgequartertri'=list(c(13,25,5)),
+  'tuck'=list(c(11,23,13)),
+  'corner'=list(c(21,23,11)),
+  '2square'=list(c(21,23,13,11),c(13,15,5,3)),
+  'hourglass'=list(c(21,13,1),c(13,25,5)),
+  'wedge'=list(c(21,25,11)),
+  'doublewedge'=list(c(21,25,11),c(11,15,1)),
+  'wedgeplushalf'=list(c(21,25,11),c(11,13,1)),
+  'pointerwedge'=list(c(21,15,5)),
+  '3tri2'=list(c(1,11,13),c(13,25,23),c(3,15,13)),
+  '2flag'=list(c(18,25,15),c(8,15,5)),
+  'space2tri'=list(c(21,25,18),c(1,8,5)),
+  'space2tridiamond'=list(c(21,25,18),c(1,8,5),c(11,18,15,8)),
+  'smalldiamond'=list(c(12,18,14,8)),
+  'x'=list(c(21,12,1),c(21,18,25),c(14,25,5),c(1,8,5)),
+  'rewind'=list(c(11,23,3),c(13,25,5)),
+  'twospotlight'=list(c(21,15,5),c(1,11,25)),
+  'diver'=list(c(21,25,11),c(1,15,5)),
+  'xdiamon'=list(c(21,12,1),c(21,18,25),c(14,25,5),c(1,8,5),c(12,18,14,8)),
+  'c'=list(c(11,23,15,14,18,12,8,3)),
+  'flatdiamond'=list(c(11,18,15,8)),
+  '4tri'=list(c(21,11,23),c(11,13,1),c(23,25,13),c(13,15,3)),
+  'hollowdiamond'=list(c(11,23,18,12),c(18,23,15,14),c(14,15,3,8),c(8,3,11,12)),
+  '3points'=list(c(11,8,1),c(3,5,14),c(25,15,18)),
+  'left2points'=list(c(11,8,1),c(3,5,14)),
+  'opposite2points'=list(c(11,8,1),c(25,15,18)),
+  'chevron'=list(c(11,25,13,5)),
+  'hollowtri'=list(c(11,25,13,5),c(19,25,5,9)),
+  '2corner'=list(c(21,23,11),c(3,15,5)),
+  '2weird'=list(c(21,23,18,11),c(3,8,15,5)),
+  '2diamond'=list(c(17,23,19,13),c(7,13,9,3)),
+  '2slant'=list(c(1,13,9,3),c(17,23,25,13))
+)
+
+baseMat<-matrix(points$id,nrow=5)
+rot90<-t(apply(baseMat,2,rev))
+rot180<-t(apply(rot90,2,rev))
+rot270<-t(apply(rot180,2,rev))
+points$rot1<-as.vector(baseMat)
+points$rot2<-as.vector(rot90)
+points$rot3<-as.vector(rot180)
+points$rot4<-as.vector(rot270)
+
+
+
+save(points,pieces,file='data/pointsPieces.RData')
+tools::resaveRdaFiles('data/pointsPieces.RData')
