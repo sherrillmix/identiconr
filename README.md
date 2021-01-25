@@ -1,5 +1,7 @@
 # identiconr
 
+
+
 [![Build Status](https://travis-ci.org/sherrillmix/identiconr.svg?branch=master)](https://travis-ci.org/sherrillmix/identiconr)
 [![codecov.io](https://codecov.io/github/sherrillmix/identiconr/coverage.svg?branch=master)](https://codecov.io/github/sherrillmix/identiconr?branch=master)
 
@@ -7,6 +9,7 @@
 
 An R library to generate random identicon patterns. To install directly from github, use the [<code>devtools</code>](https://github.com/hadley/devtools) library and run:
 
+devtools::install_github("sherrillmix/identiconr")
 
 ```r
 devtools::install_github("sherrillmix/identiconr")
