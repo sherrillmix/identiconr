@@ -55,11 +55,11 @@ plotIdenticon(seed = "abc", nSquare = 5)
 
 
 ```r
-par(mfrow = c(10, 10), mar = rep(0.1, 4))
-for (ii in 1:100) plotIdenticon()
+par(mfrow = c(10, 20), mar = rep(0.1, 4))
+for (ii in 1:200) plotIdenticon()
 ```
 
-<img src="README_files/manyIdenticon-1.png" title="plot of chunk manyIdenticon" alt="plot of chunk manyIdenticon" width="6" height="6" />
+<img src="README_files/manyIdenticon-1.png" title="plot of chunk manyIdenticon" alt="plot of chunk manyIdenticon" width="6in" height="3in" />
 
 
 ### generateIdenticon 
