@@ -56,10 +56,10 @@ plotIdenticon(seed = "abc", nSquare = 5)
 
 ```r
 par(mfrow = c(10, 20), mar = rep(0.1, 4))
-for (ii in 1:200) plotIdenticon()
+for (ii in 1:200) plotIdenticon(nSquare = 3)
 ```
 
-<img src="README_files/manyIdenticon-1.png" title="plot of chunk manyIdenticon" alt="plot of chunk manyIdenticon" width="900" height="450" />
+![plot of chunk manyIdenticon](README_files/manyIdenticon-1.png)
 
 
 ### generateIdenticon 

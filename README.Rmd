@@ -28,9 +28,9 @@ plotIdenticon(seed='abc',nSquare=3)
 plotIdenticon(seed='abc',nSquare=5)
 ```
 
-```{r manyIdenticon,tidy=TRUE,results='hide',out.width=900,out.height=450}
+```{r manyIdenticon,tidy=TRUE,results='hide',fig.width=9,fig.height=4.5}
 par(mfrow=c(10,20),mar=rep(.1,4))
-for(ii in 1:200)plotIdenticon()
+for(ii in 1:200)plotIdenticon(nSquare=3)
 ```
 
 
