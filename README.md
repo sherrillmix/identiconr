@@ -4,6 +4,7 @@
 [![codecov.io](https://codecov.io/github/sherrillmix/identiconr/coverage.svg?branch=master)](https://codecov.io/github/sherrillmix/identiconr?branch=master)
 
 ##Install
+
 An R library to generate random identicon patterns. To install directly from github, use the [<code>devtools</code>](https://github.com/hadley/devtools) library and run:
 
 
@@ -18,6 +19,7 @@ library(identiconr)
 
 ## Main functions
 ### plotIdenticon
+
 <code>plotIdenticon(seqs)</code> takes the output from <code>generateIdenticon</code> (or a seed directly) and plots them to the current device. For example:
 
 
@@ -25,53 +27,43 @@ library(identiconr)
 plotIdenticon(generateIdenticon("test@email.com"))
 ```
 
-![plot of chunk identicon example](README_files/identicon example-1.png)
-
-```
-## NULL
-```
+![plot of chunk identiconExample](README_files/identiconExample-1.png)
 
 ```r
 plotIdenticon(seed = "abc")
 ```
 
-![plot of chunk identicon example](README_files/identicon example-2.png)
-
-```
-## NULL
-```
+![plot of chunk identiconExample](README_files/identiconExample-2.png)
 
 ```r
 plotIdenticon(seed = "abc", col = "red", back = "blue")
 ```
 
-![plot of chunk identicon example](README_files/identicon example-3.png)
-
-```
-## NULL
-```
+![plot of chunk identiconExample](README_files/identiconExample-3.png)
 
 ```r
 plotIdenticon(seed = "abc", nSquare = 3)
 ```
 
-![plot of chunk identicon example](README_files/identicon example-4.png)
-
-```
-## NULL
-```
+![plot of chunk identiconExample](README_files/identiconExample-4.png)
 
 ```r
 plotIdenticon(seed = "abc", nSquare = 5)
 ```
 
-![plot of chunk identicon example](README_files/identicon example-5.png)
+![plot of chunk identiconExample](README_files/identiconExample-5.png)
 
+
+```r
+par(mfrow = c(10, 10), mar = rep(0.1, 4))
+for (ii in 1:100) plotIdenticon()
 ```
-## NULL
-```
+
+<img src="README_files/manyIdenticon-1.png" title="plot of chunk manyIdenticon" alt="plot of chunk manyIdenticon" width="6" height="6" />
+
 
 ### generateIdenticon 
+
 <code>generateIdenticon(seqs)</code> takes an integer or character seed and generates a corresponding assortment of shapes and colors. For example:
 
 
