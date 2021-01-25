@@ -57,5 +57,5 @@ points$rot4<-as.vector(rot270)
 
 
 
-save(points,pieces,file='data/pointsPieces.RData')
+save(points,pieces,file='data/pointsPieces.RData',version=2)
 tools::resaveRdaFiles('data/pointsPieces.RData')

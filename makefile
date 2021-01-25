@@ -18,15 +18,15 @@ man: R/*.R
 README.md: README.Rmd
 	R -e 'knitr::opts_chunk$$set(fig.path="README_files/");knitr::knit("README.Rmd")'
 
-inst/doc: vignettes/*.Rnw R/*.R
+doc: vignettes/*.Rnw R/*.R
 	make localInstall
 	R -e 'devtools::build_vignettes()'
-	touch inst/doc
+	touch doc
 
-data: data-raw/makeAminoColors.R
+data: data-raw/makePieces.R
 	Rscript data-raw/makePieces.R
 	touch data
 	
-../$(PACKAGEFILE): man R/*.R DESCRIPTION inst/doc data tests/testthat/*.R
+../$(PACKAGEFILE): man R/*.R DESCRIPTION doc data tests/testthat/*.R
 	sed -i "s/^Date:.*$$/Date: `date +%Y-%m-%d`/" DESCRIPTION
 	R -e 'devtools::check();devtools::build()'

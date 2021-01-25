@@ -1,0 +1,96 @@
+\documentclass[article,nogin]{article}
+\usepackage[margin=1in]{geometry}
+
+
+<<package,include=FALSE,echo=FALSE>>=
+options(keep.source = TRUE, width = 60)
+packageInfo <- packageDescription("identiconr")
+library(identiconr)
+packageKeywords<-"hash, identicon, identifier, random, pattern"
+set.seed(1234)
+@
+%\VignetteIndexEntry{identiconr examples}
+%\VignetteDepends{}
+%\VignetteKeywords{\Sexpr{packageKeywords}}
+%\VignettePackage{identiconr}
+
+\title{\texttt{\Sexpr{packageInfo$Package}} package example (version \Sexpr{packageInfo$Version})}
+\author{\Sexpr{packageInfo$Author}}
+
+
+\begin{document}
+\SweaveOpts{engine=R,eps=FALSE}
+
+\section{General description}
+
+\texttt{\Sexpr{packageInfo$Package}} generates a random identicon pattern for a given seed.
+<<plotDNA, echo=TRUE, eval=FALSE>>=
+  par(mfrow=c(4,4),mar=c(0,0,0,0))
+  for(ii in 1:16)plotIdenticon()
+@
+
+\begin{center}
+<<showPlotDNA, fig=TRUE, height=2.5, width=2.5, echo=FALSE>>=
+<<plotDNA>>
+@
+\end{center}
+
+Colors can be adjusted with \texttt{col=} or \texttt{back=}:
+<<plotCols, echo=TRUE, eval=FALSE>>=
+  par(mfrow=c(4,4),mar=rep(.1,4))
+  for(ii in 1:16)plotIdenticon(col='red',back='blue')
+@
+
+\begin{center}
+<<showPlotCols, fig=TRUE, height=2.5, width=2.5, echo=FALSE>>=
+<<plotCols>>
+@
+\end{center}
+
+
+The number of squares in the identicon can be adjusted with \texttt{nSquare=}:
+<<plotSquares, echo=TRUE, eval=FALSE>>=
+  par(mfrow=c(5,5),mar=c(0,0,0,0))
+  for(ii in 1:5)for(jj in 1:5)plotIdenticon(nSquare=ii)
+@
+
+\begin{center}
+<<showPlotSquares, fig=TRUE, height=2.5, width=2.5, echo=FALSE>>=
+<<plotSquares>>
+@
+\end{center}
+
+
+\section{Details}
+
+The pattern is generated from a selection of potential shapes:
+<<plotShapes, echo=TRUE, eval=FALSE>>=
+par(mfrow=c(4,11),mar=c(0,0,0,0))
+for(ii in identiconr::pieces){
+  plot(1,1,type='n',xlim=c(-.5,.5),ylim=c(-.5,.5),xlab='',ylab='',xaxt='n',yaxt='n')
+  lapply(ii,function(xx)polygon(identiconr::points[xx,c('x','y')],col='black'))
+}
+@
+
+\begin{center}
+<<showPlotShapes, fig=TRUE, height=1.5, width=6, echo=FALSE>>=
+<<plotShapes>>
+@
+\end{center}
+
+Note these shapes are stored in \texttt{identiconr::pieces} as point IDs with points corresponding to the positions in \texttt{identiconr::points}:
+<<plotPoints, echo=TRUE, eval=FALSE>>=
+par(mar=c(0,0,0,0))
+plot(1,1,type='n',xlim=c(-.5,.5),ylim=c(-.5,.5),xlab='',ylab='',xaxt='n',yaxt='n',bty='n')
+text(identiconr::points$x,identiconr::points$y,identiconr::points$id)
+@
+
+\begin{center}
+<<showPlotPoints, fig=TRUE, height=2, width=2, echo=FALSE, fig.width='2in'>>=
+<<plotPoints>>
+@
+\end{center}
+
+
+
+\end{document}
