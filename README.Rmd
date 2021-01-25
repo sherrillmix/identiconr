@@ -1,4 +1,4 @@
-# DNAPlotR
+# identiconr
 
 [![Build Status](https://travis-ci.org/sherrillmix/identiconr.svg?branch=master)](https://travis-ci.org/sherrillmix/identiconr)
 [![codecov.io](https://codecov.io/github/sherrillmix/identiconr/coverage.svg?branch=master)](https://codecov.io/github/sherrillmix/identiconr?branch=master)
@@ -11,26 +11,29 @@ devtools::install_github("sherrillmix/identiconr")
 ```
 Then load the library as normal using:
 ```{r}
-library(dnaplotr)
+library(identiconr)
 ```
 
 ## Main functions
-### generateIdenticon 
-<code>generateIdenticon(seqs)</code> takes an integer or character seed and generates a corresponding assortment of shapes and colors. For example:
-
-```{r seqExample,tidy=TRUE,results='hide'}
-generateIdenticon('test@email.com')
-```
-
-This isn't particularly useful by itself but will usually be used with the following function.
-
 ### plotIdenticon
 <code>plotIdenticon(seqs)</code> takes the output from <code>generateIdenticon</code> (or a seed directly) and plots them to the current device. For example:
 
-```{r aaExample,tidy=TRUE,results='hide'}
+```{r identicon example,tidy=TRUE}
 plotIdenticon(generateIdenticon('test@email.com'))
 plotIdenticon(seed='abc')
+plotIdenticon(seed='abc',col='red',back='blue')
+plotIdenticon(seed='abc',nSquare=3)
+plotIdenticon(seed='abc',nSquare=5)
 ```
+
+### generateIdenticon 
+<code>generateIdenticon(seqs)</code> takes an integer or character seed and generates a corresponding assortment of shapes and colors. For example:
+
+```{r seqExample,tidy=TRUE}
+generateIdenticon('test@email.com')
+```
+
+This isn't particularly useful by itself and will probably only be used with `plotIdenticon()` but is provided for any extensions or manual adjustment.
 
 See [doc/example.pdf](the vignette) for complete plotting details.
 
