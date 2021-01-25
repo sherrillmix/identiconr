@@ -107,5 +107,4 @@ generateIdenticon("test@email.com")
 
 This isn't particularly useful by itself and will probably only be used with `plotIdenticon()` but is provided for any extensions or manual adjustment.
 
-See [the vignette](doc/example.pdf) for complete plotting details.
 
